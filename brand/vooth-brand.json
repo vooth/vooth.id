@@ -1,0 +1,91 @@
+{
+  "$comment": "Structured index of design/brand/Vooth_Guideline_Aplikasi.pdf (11 slides). Quick-reference for coding agents. Source PDF is authoritative if this drifts.",
+  "brand": {
+    "name": "Vooth",
+    "formerName": "Motorbooth",
+    "tagline": "Rekam Sekarang, Cerita Nanti",
+    "positioning": "Photobooth keliling di motor. Bukan sekadar foto — media perekam momen agar momen biasa hari ini layak diceritakan di masa depan.",
+    "traits": ["Punya jiwa", "Signature 4R", "Mobile & lincah"]
+  },
+  "designPrinciples": [
+    { "name": "Ringan tapi bermakna", "detail": "Bahasa santai/kekinian di permukaan, tetap ada rasa 'cerita nanti' di dalamnya." },
+    { "name": "Cepat, anti-antre", "detail": "Setiap pilihan tambahan memperlambat antrean. Batasi pilihan, buat tiap pilihan bermakna." },
+    { "name": "Momen di atas fitur", "detail": "Aplikasi melayani momen, bukan memamerkan fitur. Sederhana, hangat, tidak membingungkan." }
+  ],
+  "palette": {
+    "name": "Senja Modern",
+    "note": "Energik di permukaan, tenang & bermakna di kedalaman. Ungu tua untuk teks/fondasi, ungu untuk elemen utama, pink untuk aksen.",
+    "roles": {
+      "tinta": { "hex": "#26215C", "role": "Ink", "use": "Teks & fondasi" },
+      "aksen": { "hex": "#7F77DD", "role": "Accent", "use": "Tombol & elemen utama" },
+      "sorot": { "hex": "#D4537E", "role": "Highlight", "use": "Aksen kedua, momen seru" },
+      "latar": { "hex": "#EEEDFE", "role": "Background", "use": "Latar lembut, ruang napas" }
+    }
+  },
+  "coreFlow": {
+    "note": "Alur identik di kedua mode (operator & self-service). Yang berubah hanya siapa yang menekan.",
+    "steps": [
+      { "n": 1, "id": "welcome", "title": "Sambutan", "detail": "Logo + satu tombol besar: Mulai" },
+      { "n": 2, "id": "layout", "title": "Pilih Layout", "detail": "3-4 tata letak 4R (1/2/4 foto)" },
+      { "n": 3, "id": "style", "title": "Pilih Gaya", "detail": "4-5 paket filter+frame bernama" },
+      { "n": 4, "id": "capture", "title": "Ambil Foto", "detail": "Hitung mundur 3-2-1, preview besar" },
+      { "n": 5, "id": "preview", "title": "Pratinjau", "detail": "Ambil ulang (maks 2x) atau lanjut" },
+      { "n": 6, "id": "konteks_momen", "title": "Konteks Momen", "detail": "Catatan singkat untuk di balik foto", "signature": true },
+      { "n": 7, "id": "output", "title": "Cetak + Digital", "detail": "Cetak 4R + QR ambil versi digital" }
+    ]
+  },
+  "signatureFeature": {
+    "id": "konteks_momen",
+    "title": "Konteks Momen — jantungnya Vooth",
+    "why": "Pembeda utama Vooth dari photobooth biasa. Wajib ada. Mengubah selembar foto jadi kapsul waktu.",
+    "rules": [
+      { "name": "Terisi otomatis", "detail": "nama acara, tanggal, lokasi — agar tidak memperlambat antrean." },
+      { "name": "Satu kalimat opsional", "detail": "pengguna boleh menambah satu baris personal." },
+      { "name": "Tercetak di bawah 4R", "detail": "jejak yang bisa dibaca ulang bertahun kemudian." },
+      { "name": "Ikut tersimpan di versi digital", "detail": "konteks melekat pada file, bukan hanya cetakan." }
+    ],
+    "exampleCard": { "heading": "Catatan di balik foto", "sub": "Biar ada yang diceritain nanti", "quote": "akhirnya kumpul juga...", "date": "23 Juni 2026", "cta": "Cetak & simpan" }
+  },
+  "modes": {
+    "note": "Dua mode yang bisa diganti; alur foto identik supaya partner tak perlu belajar dua sistem.",
+    "operator": {
+      "label": "Mode Operator",
+      "sub": "Partner yang mengarahkan & menekan",
+      "traits": ["Untuk acara formal atau tamu yang belum terbiasa", "Operator menjaga ritme saat ramai", "Akses pengaturan tersembunyi (harga, sesi, dsb.)"]
+    },
+    "selfService": {
+      "label": "Mode Self-Service",
+      "sub": "Tamu memakai layar box langsung",
+      "traits": ["Untuk acara santai atau booth yang ditinggal", "Pengaturan dikunci, hanya alur foto tampil", "Timeout otomatis kembali ke awal bila ditinggal"]
+    }
+  },
+  "output": {
+    "note": "Setiap sesi menghasilkan dua keluaran yang ditangani aplikasi secara mulus.",
+    "print": { "title": "Cetak 4R (postcard)", "detail": "Format signature Vooth. Printer dye-sub. Aplikasi kirim data cetak + layout + konteks momen ke printer." },
+    "digital": { "title": "Digital via QR", "detail": "QR agar tamu ambil versi digital ke HP. Konteks momen ikut melekat pada file digital." }
+  },
+  "uxRules": [
+    { "name": "Batasi jumlah pilihan", "detail": "Maksimal 4-5 filter/gaya dan 3-4 layout. Lebih dari itu memperlambat & membingungkan." },
+    { "name": "Beri nama yang bermakna", "detail": "Bukan 'Filter 1,2,3'. Pakai nama berjiwa (mis. Niskala, Senja, Klasik) — terasa terkurasi." },
+    { "name": "Batasi ambil ulang", "detail": "Maksimal 2x agar antrean tetap jalan tanpa membuat tamu terburu-buru." },
+    { "name": "Gabung filter + frame", "detail": "Sajikan sebagai satu paket serasi, agar tamu tak perlu mencocokkan sendiri." }
+  ],
+  "appResponsibilities": [
+    { "title": "Kamera & preview live", "detail": "Kontrol kamera, hitung mundur, tangkap multi-foto per layout." },
+    { "title": "Dua mode + kunci", "detail": "Operator vs self-service, timeout, pengaturan terlindungi." },
+    { "title": "Kirim ke printer 4R", "detail": "Susun layout + konteks momen, kirim ke printer dye-sub." },
+    { "title": "Galeri digital + QR", "detail": "Simpan foto, buat tautan/QR, sematkan metadata konteks." }
+  ],
+  "businessNote": "Aplikasi dibangun dari nol oleh partner, dengan skema bagi hasil (bukan biaya di muka).",
+  "deltasVsCurrentSpec": [
+    "Konteks Momen (step 6) — belum ada di codebase; fitur signature.",
+    "Self-service mode terkunci + idle timeout — belum ada mode formal.",
+    "Named filter+frame 'Gaya' packages (Niskala/Senja/Klasik) — axis terpisah dari layout, belum dibangun.",
+    "Rebrand Motorbooth→Vooth + palette Senja Modern (menggantikan Retro/Mono/Neon).",
+    "Retake cap 2x."
+  ],
+  "sourcePdf": "Vooth_Guideline_Aplikasi.pdf",
+  "sourcePdfPages": 11,
+  "archivedFrom": "~/Downloads/Vooth_Guideline_Aplikasi.pdf",
+  "audience": "Panduan untuk Partner Developer"
+}
