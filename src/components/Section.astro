@@ -1,0 +1,30 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  background?: 'bg' | 'white' | 'ink' | 'accent-soft';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+  id?: string;
+}
+
+const { background = 'bg', spacing = 'lg', class: className, id } = Astro.props;
+
+const backgroundClasses = {
+  bg: 'bg-bg text-ink',
+  white: 'bg-white text-ink',
+  ink: 'bg-ink text-bg',
+  'accent-soft': 'bg-accent-soft text-ink',
+};
+
+const spacingClasses = {
+  sm: 'py-10',
+  md: 'py-14',
+  lg: 'py-20',
+  xl: 'py-28',
+};
+---
+
+<section id={id} class={clsx(backgroundClasses[background], spacingClasses[spacing], className)}>
+  <slot />
+</section>

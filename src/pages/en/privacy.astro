@@ -1,0 +1,186 @@
+---
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+import Prose from '../../components/Prose.astro';
+import { whatsappLink } from '../../config';
+
+const contactMessage = 'Hi Vooth, I have a question about personal data (Privacy Policy).';
+const contactHref = whatsappLink(contactMessage);
+---
+
+<MarketingLayout
+  title="Privacy Policy"
+  description="How Vooth collects, uses, stores, and deletes your personal data, under Indonesian Law No. 27 of 2022 (PDP Law)."
+>
+  <Prose
+    title="Vooth Privacy Policy"
+    updated="Version 1.0 (draft) · Legal basis: Law No. 27 of 2022 (PDP Law)"
+  >
+    <p>
+      This page explains how <strong>Vooth</strong> ("we") collects, uses, stores, and deletes your personal
+      data. It follows Indonesian Law No. 27 of 2022 on Personal Data Protection (the PDP Law). The Indonesian
+      version at <a href="/privasi">/privasi</a> is the authoritative text.
+    </p>
+
+    <div
+      class="not-prose rounded-xl border border-highlight/30 bg-highlight-soft p-4 text-sm text-ink"
+    >
+      <strong>Draft status.</strong> The Vooth data-controller legal entity is still being finalized.
+      In the meantime, personal-data questions are handled directly via Vooth WhatsApp, with Endy Muhardin
+      as the responsible person. The legal entity name, mailing address, and official email will appear
+      here before this policy takes full effect.
+    </div>
+
+    <h2>1. Data Controller Identity</h2>
+    <p>The controller of personal data for the Vooth service:</p>
+    <ul>
+      <li><strong>Responsible person:</strong> Endy Muhardin</li>
+      <li>
+        <strong>Contact:</strong>
+        <a href={contactHref} target="_blank" rel="noopener noreferrer">Vooth WhatsApp</a>
+      </li>
+    </ul>
+    <p>
+      Questions, complaints, or requests about your personal data can be sent via the contact above.
+      We respond within 14 business days at most.
+    </p>
+
+    <h2>2. Data We Collect</h2>
+    <h3>2.1 Your Photos</h3>
+    <p>
+      Photos you produce using Vooth, including the composite with the frame and moment context you
+      chose.
+    </p>
+    <h3>2.2 Transaction Data</h3>
+    <ul>
+      <li>Session ID (random, internal)</li>
+      <li>Chosen package and payment amount</li>
+      <li>Payment method and payment status</li>
+      <li>Photo creation and access timestamps</li>
+    </ul>
+    <h3>2.3 Technical Data</h3>
+    <p>When you access your photo download link:</p>
+    <ul>
+      <li>Your device IP address</li>
+      <li>Browser and operating system (user agent)</li>
+      <li>Access timestamp</li>
+    </ul>
+    <h3>2.4 Consent Records</h3>
+    <p>
+      When you give consent, we record the timestamp, the policy version in effect, and the agreed
+      retention period.
+    </p>
+    <p>
+      <strong>We do not collect:</strong> name, phone number, personal email, ID number, biometric data,
+      GPS location, or any data beyond what is listed above.
+    </p>
+
+    <h2>3. Processing Purposes</h2>
+    <ol>
+      <li>
+        <strong>Delivering the service you paid for:</strong> storing your photo so you can download it
+        via a unique link.
+      </li>
+      <li><strong>Processing payment</strong> for your session.</li>
+      <li>
+        <strong>Supporting event operations:</strong> aggregate summaries (transaction count, revenue
+        per event) in the operator dashboard.
+      </li>
+      <li>
+        <strong>Meeting legal obligations</strong> where there is an official request from an authorized
+        body.
+      </li>
+    </ol>
+    <p>
+      <strong>We do not use your data for:</strong> advertising, AI model training, facial recognition,
+      profiling, sale to third parties, or behavioral analytics.
+    </p>
+
+    <h2>4. Legal Basis for Processing</h2>
+    <p>
+      Processing is based on the <strong>explicit consent</strong> you give before the session begins
+      (Article 20(2)(a) of the PDP Law). Without this consent the service cannot be provided, because
+      we would be unable to deliver your photo.
+    </p>
+
+    <h2>5. Retention and Automatic Deletion</h2>
+    <p>
+      Your photos are stored for <strong>30 days</strong> after the transaction completes (configurable
+      by the operator within 7–90 days). After that period, your photos are deleted automatically by a
+      scheduled daily process. Transaction records (without photos) are kept for 5 years as accounting
+      evidence.
+    </p>
+
+    <h2>6. Your Rights as a Data Subject</h2>
+    <p>Under Articles 5–11 of the PDP Law, you have the right to:</p>
+    <ul>
+      <li>
+        <strong>Access</strong> your personal data — the photo download link is that access mechanism.
+      </li>
+      <li><strong>Delete</strong> your photo at any time before the retention period ends.</li>
+      <li>
+        <strong>Withdraw consent</strong> — deleting the photo is equivalent to withdrawing consent.
+      </li>
+      <li><strong>Correct</strong> data if there is an error.</li>
+      <li><strong>Object</strong> to processing.</li>
+      <li><strong>File a complaint</strong> with the Personal Data Protection Authority.</li>
+    </ul>
+
+    <h2>7. Data Storage and Security</h2>
+    <ul>
+      <li>Data is stored on servers located in Indonesia.</li>
+      <li>
+        Server access is restricted to authorized operators via SSH key authentication and basic
+        auth for the dashboard.
+      </li>
+      <li>
+        Communication between your device and our server is protected with TLS encryption (HTTPS).
+      </li>
+      <li>Photo download links use a cryptographic signature (HMAC) with limited validity.</li>
+      <li>
+        Your photos are not stored on foreign cloud services, not uploaded to social media, and not
+        shared with third parties.
+      </li>
+    </ul>
+
+    <h2>8. Sharing Data with Third Parties</h2>
+    <p>
+      We only share data with third parties where a payment gateway is required to process a
+      transaction, or upon an official <strong>legal request</strong> from law enforcement. We do
+      <strong>not</strong> sell, rent, or trade your data.
+    </p>
+
+    <h2>9. Cookies and Tracking</h2>
+    <p>
+      Our photo download pages use no third-party cookies, load no analytics scripts, and use no
+      tracking pixels. Only minimal session cookies are used where required for basic security.
+    </p>
+
+    <h2>10. Minors</h2>
+    <p>
+      Vooth is not designed specifically for children under 18. If a customer is a minor, consent
+      must be given by a lawful parent or guardian, per Article 25 of the PDP Law.
+    </p>
+
+    <h2>11. Policy Changes</h2>
+    <p>
+      We may update this Privacy Policy. Any material change is marked with a new version and
+      updated effective date at the top of this page. Consent you have already given remains valid
+      for the version in effect when it was given.
+    </p>
+
+    <h2>12. Jurisdiction and Dispute Resolution</h2>
+    <p>
+      This policy is governed by the laws of the Republic of Indonesia. Any dispute is first
+      resolved through deliberation; failing that, through the mechanisms set out in the PDP Law and
+      its implementing regulations, including submission to the Personal Data Protection Authority
+      or a competent judicial forum.
+    </p>
+
+    <h2>13. Contact</h2>
+    <p>
+      For questions, complaints, or requests about your personal data, reach us on
+      <a href={contactHref} target="_blank" rel="noopener noreferrer">Vooth WhatsApp</a>. We respond
+      within 14 business days at most.
+    </p>
+  </Prose>
+</MarketingLayout>

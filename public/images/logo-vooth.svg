@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Vooth">
+  <g fill="none" stroke="#7F77DD" stroke-width="4">
+    <circle cx="28" cy="28" r="15" />
+  </g>
+  <circle cx="28" cy="28" r="6" fill="#D4537E" />
+  <text x="52" y="38" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="#26215C" letter-spacing="0.5">Vooth</text>
+</svg>

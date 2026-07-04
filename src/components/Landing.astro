@@ -1,0 +1,187 @@
+---
+import type { Locale } from '../utils/i18n';
+import type { LandingCopy } from '../landing-copy';
+import Container from './Container.astro';
+import Section from './Section.astro';
+import Button from './Button.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+import SampleCard from './SampleCard.astro';
+
+interface Props {
+  locale: Locale;
+  copy: LandingCopy;
+}
+
+const { hero, pitch, konteks, gallery, flow, packages, finalCta, bookingMessage } =
+  Astro.props.copy;
+---
+
+<!-- Hero -->
+<Section background="bg" spacing="xl">
+  <Container>
+    <div class="max-w-3xl">
+      <span
+        class="inline-block text-sm font-semibold text-accent bg-white rounded-full px-4 py-1.5 shadow-sm"
+        >{hero.badge}</span
+      >
+      <h1 class="mt-6 text-5xl sm:text-6xl font-bold tracking-tight leading-[1.05]">
+        {hero.taglineLead}<br /><span class="text-highlight">{hero.taglineAccent}</span>
+      </h1>
+      <p class="mt-6 text-lg text-ink/75 leading-relaxed max-w-2xl">{hero.sub}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <WhatsAppButton message={bookingMessage} variant="highlight" size="lg">
+          {hero.ctaBook}
+        </WhatsAppButton>
+        <Button href="#konteks" variant="outline" size="lg">{hero.ctaKonteks}</Button>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<!-- Bukan photobooth biasa -->
+<Section background="white" spacing="lg">
+  <Container>
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-bold">{pitch.title}</h2>
+      <p class="mt-4 text-lg text-ink/70">{pitch.body}</p>
+    </div>
+    <div class="mt-12 grid gap-8 sm:grid-cols-3">
+      {
+        pitch.points.map((point) => (
+          <div class="rounded-2xl bg-bg p-6">
+            <h3 class="text-lg font-semibold text-accent">{point.title}</h3>
+            <p class="mt-2 text-ink/75 leading-relaxed">{point.detail}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Section>
+
+<!-- Konteks Momen — signature -->
+<Section id="konteks" background="ink" spacing="xl">
+  <Container>
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <span class="text-sm font-semibold uppercase tracking-wide text-highlight"
+          >{konteks.kicker}</span
+        >
+        <h2 class="mt-3 text-4xl sm:text-5xl font-bold">{konteks.title}</h2>
+        <p class="mt-5 text-lg text-bg/80 leading-relaxed">{konteks.body}</p>
+        <dl class="mt-8 grid gap-6 sm:grid-cols-2">
+          {
+            konteks.rules.map((rule) => (
+              <div>
+                <dt class="font-semibold text-bg">{rule.title}</dt>
+                <dd class="mt-1 text-sm text-bg/70 leading-relaxed">{rule.detail}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+      <div class="max-w-xs mx-auto w-full">
+        <SampleCard
+          style={konteks.card.style}
+          caption={konteks.card.caption}
+          date={konteks.card.date}
+          index={1}
+        />
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<!-- Gallery -->
+<Section background="bg" spacing="lg">
+  <Container>
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-bold">{gallery.title}</h2>
+      <p class="mt-4 text-lg text-ink/70">{gallery.sub}</p>
+    </div>
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        gallery.cards.map((card, i) => (
+          <SampleCard style={card.style} caption={card.caption} date={card.date} index={i} />
+        ))
+      }
+    </div>
+  </Container>
+</Section>
+
+<!-- Flow -->
+<Section background="white" spacing="lg">
+  <Container>
+    <h2 class="text-3xl sm:text-4xl font-bold">{flow.title}</h2>
+    <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      {
+        flow.steps.map((step) => (
+          <li class="relative rounded-2xl bg-bg p-5">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white font-bold">
+              {step.n}
+            </span>
+            <h3 class="mt-3 font-semibold">{step.title}</h3>
+            <p class="mt-1 text-sm text-ink/70 leading-relaxed">{step.detail}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </Container>
+</Section>
+
+<!-- Packages -->
+<Section background="accent-soft" spacing="lg">
+  <Container>
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-bold">{packages.title}</h2>
+      <p class="mt-4 text-lg text-ink/70">{packages.sub}</p>
+    </div>
+    <div class="mt-12 grid gap-8 sm:grid-cols-2">
+      {
+        packages.items.map((item) => (
+          <div class="flex flex-col rounded-2xl bg-white p-8 shadow-sm">
+            <h3 class="text-xl font-bold">{item.name}</h3>
+            <p class="mt-1 text-sm font-semibold text-highlight">{item.price}</p>
+            <p class="mt-3 text-ink/70">{item.desc}</p>
+            <ul class="mt-6 space-y-3 text-sm">
+              {item.features.map((feature) => (
+                <li class="flex items-start gap-2">
+                  <svg
+                    class="mt-0.5 h-5 w-5 flex-shrink-0 text-accent"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="text-ink/80">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-6 text-sm text-ink/60">{packages.note}</p>
+  </Container>
+</Section>
+
+<!-- Final CTA -->
+<Section background="ink" spacing="lg">
+  <Container>
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-bold">{finalCta.title}</h2>
+      <p class="mt-4 text-lg text-bg/80">{finalCta.body}</p>
+      <div class="mt-8">
+        <WhatsAppButton message={bookingMessage} variant="highlight" size="lg">
+          {finalCta.button}
+        </WhatsAppButton>
+      </div>
+    </div>
+  </Container>
+</Section>

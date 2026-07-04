@@ -18,14 +18,23 @@ surfaces are separate and do **not** live here:
 - i18n: `id` (default) + `en`
 - Reference implementation to mirror: `~/workspace/website/stmik.tazkia.ac.id/frontend`
 
+## Config
+
+`WHATSAPP_NUMBER` is **required** at build/dev time — the single source of truth
+for the booking deep link lives in [`src/config.ts`](src/config.ts), which
+throws if it is unset or malformed (no placeholder number is ever shipped).
+Format: international, digits only, no `+`/spaces/leading `0` (e.g.
+`6281234567890`). Copy `.env.example` → `.env` and fill it in.
+
 ## Develop
 
 ```bash
 npm install
-npm run dev        # astro dev
-npm run build      # astro build → dist/
-npm run preview    # serve dist/ locally
-npm run typecheck  # astro check
+cp .env.example .env   # then set WHATSAPP_NUMBER
+npm run dev            # astro dev
+npm run build          # astro build → dist/
+npm run preview        # serve dist/ locally
+npm run typecheck      # astro check
 ```
 
 ## Deploy

@@ -1,0 +1,71 @@
+---
+import { getLocaleFromUrl, t, localizePath } from '../utils/i18n';
+import Container from './Container.astro';
+import { whatsappLink, INSTAGRAM_URL } from '../config';
+
+const locale = getLocaleFromUrl(Astro.url);
+const translate = (key: string) => t(locale, key);
+const localPath = (path: string) => localizePath(locale, path);
+const currentYear = new Date().getFullYear();
+
+const privacyPath = locale === 'en' ? '/en/privacy' : '/privasi';
+
+const bookingMessage =
+  locale === 'en'
+    ? 'Hi Vooth, I’d like to book the photobooth for my event.'
+    : 'Halo Vooth, saya mau booking photobooth untuk acara saya.';
+---
+
+<footer class="bg-ink text-bg" role="contentinfo">
+  <Container>
+    <div class="py-14 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="space-y-4 max-w-sm">
+        <img
+          src="/images/logo-vooth-light.svg"
+          alt={translate('site.name')}
+          class="h-9 w-auto"
+          loading="lazy"
+        />
+        <p class="text-bg/70 text-sm leading-relaxed">{translate('footer.tagline_line')}</p>
+      </div>
+
+      <div class="md:justify-self-end">
+        <h2 class="text-bg font-semibold mb-4">{translate('footer.connect')}</h2>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href={whatsappLink(bookingMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-bg/80 hover:text-highlight transition-colors"
+              >{translate('footer.whatsapp')}</a
+            >
+          </li>
+          <li>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-bg/80 hover:text-highlight transition-colors"
+              >{translate('footer.instagram')}</a
+            >
+          </li>
+          <li>
+            <a href={privacyPath} class="text-bg/80 hover:text-highlight transition-colors"
+              >{translate('footer.privacy')}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="border-t border-bg/15 py-6 text-sm text-bg/60 flex flex-wrap items-center justify-between gap-2"
+    >
+      <p>&copy; {currentYear} Vooth. {translate('footer.rights')}</p>
+      <a href={localPath('/')} class="hover:text-bg transition-colors"
+        >{translate('footer.back_home')}</a
+      >
+    </div>
+  </Container>
+</footer>

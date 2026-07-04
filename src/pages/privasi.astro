@@ -1,0 +1,186 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import Prose from '../components/Prose.astro';
+import { whatsappLink } from '../config';
+
+const contactMessage = 'Halo Vooth, saya ingin bertanya soal data pribadi (Kebijakan Privasi).';
+const contactHref = whatsappLink(contactMessage);
+---
+
+<MarketingLayout
+  title="Kebijakan Privasi"
+  description="Bagaimana Vooth mengumpulkan, menggunakan, menyimpan, dan menghapus data pribadi Anda, sesuai UU No. 27 Tahun 2022 (UU PDP)."
+>
+  <Prose
+    title="Kebijakan Privasi Vooth"
+    updated="Versi 1.0 (draf) · Dasar hukum: UU No. 27 Tahun 2022 (UU PDP)"
+  >
+    <p>
+      Halaman ini menjelaskan bagaimana <strong>Vooth</strong> ("kami") mengumpulkan, menggunakan, menyimpan,
+      dan menghapus data pribadi Anda. Dokumen ini disusun mengacu pada Undang-Undang Republik Indonesia
+      Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP).
+    </p>
+
+    <div
+      class="not-prose rounded-xl border border-highlight/30 bg-highlight-soft p-4 text-sm text-ink"
+    >
+      <strong>Status draf.</strong> Badan hukum pengendali data Vooth masih difinalkan. Selama masa ini,
+      pertanyaan terkait data pribadi ditangani langsung melalui WhatsApp Vooth dengan penanggung jawab
+      Endy Muhardin. Nama badan hukum, alamat surat, dan email resmi akan dicantumkan di sini sebelum
+      kebijakan ini berlaku penuh.
+    </div>
+
+    <h2>1. Identitas Pengendali Data</h2>
+    <p>Pengendali Data Pribadi atas layanan Vooth:</p>
+    <ul>
+      <li><strong>Penanggung jawab:</strong> Endy Muhardin</li>
+      <li>
+        <strong>Kontak:</strong>
+        <a href={contactHref} target="_blank" rel="noopener noreferrer">WhatsApp Vooth</a>
+      </li>
+    </ul>
+    <p>
+      Pertanyaan, keluhan, atau permintaan terkait data pribadi Anda dapat dikirimkan melalui kontak
+      di atas. Kami menanggapi paling lama 14 hari kerja.
+    </p>
+
+    <h2>2. Data yang Kami Kumpulkan</h2>
+    <h3>2.1 Foto Anda</h3>
+    <p>
+      Foto yang Anda hasilkan menggunakan layanan Vooth, termasuk hasil komposit dengan bingkai
+      (frame) dan konteks momen yang Anda pilih.
+    </p>
+    <h3>2.2 Data Transaksi</h3>
+    <ul>
+      <li>ID sesi (acak, internal)</li>
+      <li>Paket yang dipilih dan jumlah pembayaran</li>
+      <li>Metode pembayaran dan status pembayaran</li>
+      <li>Stempel waktu pembuatan dan akses foto</li>
+    </ul>
+    <h3>2.3 Data Teknis</h3>
+    <p>Saat Anda mengakses tautan unduh foto Anda:</p>
+    <ul>
+      <li>Alamat IP perangkat Anda</li>
+      <li>Jenis browser dan sistem operasi (user agent)</li>
+      <li>Stempel waktu akses</li>
+    </ul>
+    <h3>2.4 Catatan Persetujuan</h3>
+    <p>
+      Saat Anda memberikan persetujuan, kami merekam stempel waktu, versi kebijakan yang berlaku,
+      dan periode retensi yang disetujui.
+    </p>
+    <p>
+      <strong>Kami tidak mengumpulkan:</strong> nama, nomor telepon, alamat email pribadi, nomor identitas,
+      data biometrik, lokasi GPS, atau data lain di luar yang disebutkan di atas.
+    </p>
+
+    <h2>3. Tujuan Pemrosesan Data</h2>
+    <ol>
+      <li>
+        <strong>Memberikan layanan yang Anda bayar:</strong> menyimpan foto agar dapat Anda unduh melalui
+        tautan unik.
+      </li>
+      <li><strong>Memproses pembayaran</strong> atas sesi yang Anda lakukan.</li>
+      <li>
+        <strong>Mendukung operasional event:</strong> ringkasan agregat (jumlah transaksi, total pendapatan
+        per event) di dasbor operator.
+      </li>
+      <li>
+        <strong>Memenuhi kewajiban hukum</strong> apabila ada permintaan resmi dari lembaga berwenang.
+      </li>
+    </ol>
+    <p>
+      <strong>Kami tidak menggunakan data Anda untuk:</strong> iklan, pelatihan model AI, pengenalan wajah,
+      profiling, penjualan ke pihak ketiga, atau analitik perilaku.
+    </p>
+
+    <h2>4. Dasar Hukum Pemrosesan</h2>
+    <p>
+      Pemrosesan didasarkan pada <strong>persetujuan eksplisit</strong> yang Anda berikan sebelum sesi
+      dimulai (Pasal 20 ayat (2) huruf a UU PDP). Tanpa persetujuan ini, layanan tidak dapat diberikan
+      karena kami tidak akan dapat mengirimkan foto kepada Anda.
+    </p>
+
+    <h2>5. Periode Penyimpanan dan Penghapusan Otomatis</h2>
+    <p>
+      Foto Anda disimpan selama <strong>30 hari</strong> sejak transaksi selesai (dapat dikonfigurasi
+      operator dalam rentang 7–90 hari). Setelah periode itu, foto Anda dihapus secara otomatis melalui
+      proses harian terjadwal. Catatan transaksi (tanpa foto) disimpan selama 5 tahun sebagai bukti pembukuan.
+    </p>
+
+    <h2>6. Hak Anda Sebagai Subjek Data</h2>
+    <p>Sesuai Pasal 5–11 UU PDP, Anda berhak untuk:</p>
+    <ul>
+      <li>
+        <strong>Mengakses</strong> data pribadi Anda — tautan unduh foto adalah mekanisme akses tersebut.
+      </li>
+      <li><strong>Menghapus</strong> foto Anda kapan saja sebelum periode retensi berakhir.</li>
+      <li>
+        <strong>Menarik persetujuan</strong> — penghapusan foto setara dengan penarikan persetujuan.
+      </li>
+      <li><strong>Memperbaiki</strong> data jika ada kesalahan.</li>
+      <li><strong>Mengajukan keberatan</strong> terhadap pemrosesan.</li>
+      <li><strong>Mengajukan keluhan</strong> kepada Lembaga Pelindungan Data Pribadi.</li>
+    </ul>
+
+    <h2>7. Penyimpanan dan Keamanan Data</h2>
+    <ul>
+      <li>Data disimpan pada server yang berlokasi di Indonesia.</li>
+      <li>
+        Akses server dibatasi pada operator berwenang melalui autentikasi SSH key dan otentikasi
+        dasar untuk dasbor.
+      </li>
+      <li>Komunikasi antara perangkat Anda dan server dilindungi enkripsi TLS (HTTPS).</li>
+      <li>
+        Tautan unduh foto menggunakan tanda tangan kriptografi (HMAC) dengan masa berlaku terbatas.
+      </li>
+      <li>
+        Foto Anda tidak disimpan di layanan cloud asing, tidak diunggah ke media sosial, dan tidak
+        dibagikan kepada pihak ketiga.
+      </li>
+    </ul>
+
+    <h2>8. Berbagi Data dengan Pihak Ketiga</h2>
+    <p>
+      Kami hanya membagikan data dengan pihak ketiga apabila diperlukan gerbang pembayaran untuk
+      memproses transaksi, atau atas <strong>permintaan hukum</strong> resmi dari aparat penegak hukum.
+      Kami <strong>tidak</strong> menjual, menyewakan, atau memperdagangkan data Anda.
+    </p>
+
+    <h2>9. Cookie dan Pelacakan</h2>
+    <p>
+      Halaman unduh foto kami tidak menggunakan cookie pihak ketiga, tidak memuat skrip analitik,
+      dan tidak menggunakan piksel pelacakan. Hanya cookie sesi minimal yang digunakan apabila
+      diperlukan untuk fungsi keamanan dasar.
+    </p>
+
+    <h2>10. Anak di Bawah Umur</h2>
+    <p>
+      Layanan Vooth tidak dirancang khusus untuk anak di bawah 18 tahun. Apabila pelanggan adalah
+      anak di bawah umur, persetujuan harus diberikan oleh orang tua atau wali yang sah, sesuai
+      Pasal 25 UU PDP.
+    </p>
+
+    <h2>11. Perubahan Kebijakan</h2>
+    <p>
+      Kami dapat memperbarui Kebijakan Privasi ini. Setiap perubahan material ditandai dengan versi
+      baru dan tanggal berlaku yang diperbarui di bagian atas halaman ini. Persetujuan yang telah
+      Anda berikan tetap berlaku untuk versi yang berlaku saat persetujuan tersebut diberikan.
+    </p>
+
+    <h2>12. Yurisdiksi dan Penyelesaian Sengketa</h2>
+    <p>
+      Kebijakan ini tunduk pada hukum Negara Republik Indonesia. Setiap sengketa diselesaikan
+      terlebih dahulu secara musyawarah; apabila tidak tercapai, melalui mekanisme yang diatur dalam
+      UU PDP dan peraturan pelaksananya, termasuk pengajuan kepada Lembaga Pelindungan Data Pribadi
+      atau forum yudisial yang berwenang.
+    </p>
+
+    <h2>13. Kontak</h2>
+    <p>
+      Untuk pertanyaan, keluhan, atau permintaan terkait data pribadi Anda, hubungi
+      <a href={contactHref} target="_blank" rel="noopener noreferrer">WhatsApp Vooth</a>. Kami
+      menanggapi paling lama 14 hari kerja.
+    </p>
+  </Prose>
+</MarketingLayout>

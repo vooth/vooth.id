@@ -1,0 +1,39 @@
+{
+  "name": "vooth-id-website",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "overrides": {
+    "vite": "7.3.6"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "4.1.18",
+    "astro": "5.16.11",
+    "clsx": "^2.1.1",
+    "tailwindcss": "4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.6.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^25.0.9",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.5.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,47 @@
+---
+// A design mockup of the signature Vooth 4R postcard: photo area on top, the
+// "Konteks Momen" strip printed underneath. These are illustrative frames of
+// the output format, not real session photos — replace the gradient photo area
+// with an Astro <Image> of an actual session photo once shooting starts.
+import clsx from 'clsx';
+
+interface Props {
+  /** Named "Gaya" package, e.g. Niskala / Senja / Klasik. */
+  style: string;
+  /** One-line personal note printed on the card (Konteks Momen). */
+  caption: string;
+  /** Auto-filled event date line. */
+  date: string;
+  /** 0-based index, selects the photo-area gradient. */
+  index?: number;
+  class?: string;
+}
+
+const { style, caption, date, index = 0, class: className } = Astro.props;
+
+const gradients = [
+  'from-accent-soft via-accent to-ink',
+  'from-accent via-highlight to-ink',
+  'from-highlight-soft via-highlight to-ink',
+];
+const gradient = gradients[index % gradients.length];
+---
+
+<figure class={clsx('rounded-2xl bg-white shadow-lg shadow-ink/10 overflow-hidden', className)}>
+  <div
+    class={clsx(
+      'relative aspect-[4/5] bg-gradient-to-br flex items-center justify-center',
+      gradient
+    )}
+  >
+    <img src="/favicon.svg" alt="" class="w-12 h-12 opacity-90" aria-hidden="true" />
+    <span
+      class="absolute top-3 left-3 text-xs font-semibold tracking-wide uppercase text-white/90 bg-ink/40 rounded-full px-3 py-1"
+      >{style}</span
+    >
+  </div>
+  <figcaption class="bg-ink text-bg px-4 py-3">
+    <p class="text-sm leading-snug">“{caption}”</p>
+    <p class="text-xs text-bg/60 mt-1">{date}</p>
+  </figcaption>
+</figure>

@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/*
+ * Senja Modern — Vooth brand palette.
+ * Authoritative source: brand/Vooth_Guideline_Aplikasi.pdf (index: brand/vooth-brand.json).
+ *   ink       #26215C  text & foundations, dark backgrounds
+ *   accent    #7F77DD  buttons & primary elements
+ *   highlight #D4537E  secondary accent, CTAs "seru"
+ *   bg        #EEEDFE  soft light background, breathing room
+ * Darker/lighter steps below are derived for hover/border/subtle states only.
+ */
+@theme {
+  --color-ink: #26215c;
+  --color-ink-soft: #3a3480;
+
+  --color-accent: #7f77dd;
+  --color-accent-dark: #6a61d4;
+  --color-accent-soft: #e4e2f7;
+
+  --color-highlight: #d4537e;
+  --color-highlight-dark: #bd3e6a;
+  --color-highlight-soft: #f7dfe8;
+
+  --color-bg: #eeedfe;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}

@@ -1,0 +1,46 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  variant?: 'accent' | 'highlight' | 'outline' | 'outline-light';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  variant = 'accent',
+  size = 'md',
+  href,
+  type = 'button',
+  class: className,
+  ...props
+} = Astro.props;
+
+const baseClasses =
+  'inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent';
+
+const variantClasses = {
+  accent: 'bg-accent text-white hover:bg-accent-dark',
+  highlight: 'bg-highlight text-white hover:bg-highlight-dark',
+  outline: 'border-2 border-ink text-ink hover:bg-ink hover:text-bg',
+  'outline-light': 'border-2 border-bg/60 text-bg hover:bg-bg hover:text-ink',
+};
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const classes = clsx(baseClasses, variantClasses[variant], sizeClasses[size], className);
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element href={href} type={!href ? type : undefined} class={classes} {...props}>
+  <slot />
+</Element>

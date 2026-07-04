@@ -1,0 +1,24 @@
+{
+  "site": {
+    "name": "Vooth",
+    "tagline": "Capture Now, Tell the Story Later"
+  },
+  "nav": {
+    "home": "Home",
+    "privacy": "Privacy Policy",
+    "booking": "Book via WhatsApp"
+  },
+  "language": {
+    "id": "Bahasa Indonesia",
+    "en": "English"
+  },
+  "footer": {
+    "tagline_line": "A roving photobooth that records the moment, not just the photo.",
+    "connect": "Connect",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved.",
+    "back_home": "Back to home"
+  }
+}

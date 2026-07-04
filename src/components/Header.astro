@@ -1,0 +1,41 @@
+---
+import { getLocaleFromUrl, t, localizePath } from '../utils/i18n';
+import Container from './Container.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+const locale = getLocaleFromUrl(Astro.url);
+const translate = (key: string) => t(locale, key);
+const localPath = (path: string) => localizePath(locale, path);
+
+const bookingMessage =
+  locale === 'en'
+    ? 'Hi Vooth, I’d like to book the photobooth for my event.'
+    : 'Halo Vooth, saya mau booking photobooth untuk acara saya.';
+---
+
+<header class="sticky top-0 z-50 bg-bg/90 backdrop-blur border-b border-ink/10" role="banner">
+  <Container>
+    <div class="flex items-center justify-between h-16">
+      <a
+        href={localPath('/')}
+        class="flex items-center"
+        aria-label={translate('site.name') + ' — ' + translate('nav.home')}
+      >
+        <img src="/images/logo-vooth.svg" alt={translate('site.name')} class="h-8 w-auto" />
+      </a>
+
+      <div class="flex items-center gap-3">
+        <LanguageSwitcher locale={locale} />
+        <WhatsAppButton
+          message={bookingMessage}
+          variant="highlight"
+          size="sm"
+          class="hidden sm:inline-flex"
+        >
+          {translate('nav.booking')}
+        </WhatsAppButton>
+      </div>
+    </div>
+  </Container>
+</header>

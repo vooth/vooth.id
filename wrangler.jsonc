@@ -1,0 +1,10 @@
+{
+  "name": "vooth-id",
+  "compatibility_date": "2026-05-01",
+  "assets": {
+    "directory": "dist"
+  },
+  "routes": [
+    { "pattern": "vooth.id", "custom_domain": true }
+  ]
+}

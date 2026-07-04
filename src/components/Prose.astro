@@ -1,0 +1,22 @@
+---
+import Container from './Container.astro';
+
+interface Props {
+  title: string;
+  updated: string;
+}
+
+const { title, updated } = Astro.props;
+---
+
+<article class="bg-white">
+  <Container size="sm" class="py-16">
+    <h1 class="text-4xl font-bold tracking-tight">{title}</h1>
+    <p class="mt-3 text-sm text-ink/60">{updated}</p>
+    <div
+      class="prose prose-lg mt-10 max-w-none prose-headings:text-ink prose-headings:font-semibold prose-a:text-accent hover:prose-a:text-accent-dark prose-strong:text-ink"
+    >
+      <slot />
+    </div>
+  </Container>
+</article>

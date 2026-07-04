@@ -1,0 +1,96 @@
+---
+import { getLocaleFromUrl, t } from '../utils/i18n';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noIndex?: boolean;
+  image?: string;
+}
+
+const { title, description, noIndex = false, image } = Astro.props;
+
+const locale = getLocaleFromUrl(Astro.url);
+const siteName = t(locale, 'site.name');
+const tagline = t(locale, 'site.tagline');
+
+const defaultDescription =
+  locale === 'en'
+    ? 'Vooth is a motorcycle-portable photobooth that prints a 4R card with the moment’s context on the back — capture now, tell the story later.'
+    : 'Vooth adalah photobooth keliling di motor yang mencetak kartu 4R dengan konteks momen di baliknya — rekam sekarang, cerita nanti.';
+
+const pageTitle = title ? `${title} | ${siteName}` : `${siteName} — ${tagline}`;
+const pageDescription = description || defaultDescription;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = image
+  ? new URL(image, Astro.site).href
+  : new URL('/images/og-default.svg', Astro.site).href;
+
+// Per-page hreflang URLs
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+const basePath = isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const idURL = new URL(basePath, Astro.site);
+const enURL = new URL(`/en${basePath === '/' ? '' : basePath}`, Astro.site);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#26215C" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'id_ID'} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Language alternatives -->
+    <link rel="alternate" hreflang="id" href={idURL.href} />
+    <link rel="alternate" hreflang="en" href={enURL.href} />
+    <link rel="alternate" hreflang="x-default" href={idURL.href} />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': 'https://vooth.id/#business',
+        name: 'Vooth',
+        image: 'https://vooth.id/images/logo-vooth.svg',
+        url: 'https://vooth.id',
+        slogan: tagline,
+        description: pageDescription,
+        areaServed: 'ID',
+        sameAs: ['https://instagram.com/vooth.id'],
+      })}
+    />
+
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col antialiased">
+    <slot />
+  </body>
+</html>

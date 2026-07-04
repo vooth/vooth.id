@@ -1,0 +1,24 @@
+{
+  "site": {
+    "name": "Vooth",
+    "tagline": "Rekam Sekarang, Cerita Nanti"
+  },
+  "nav": {
+    "home": "Beranda",
+    "privacy": "Kebijakan Privasi",
+    "booking": "Booking via WhatsApp"
+  },
+  "language": {
+    "id": "Bahasa Indonesia",
+    "en": "English"
+  },
+  "footer": {
+    "tagline_line": "Photobooth keliling yang merekam momen, bukan sekadar foto.",
+    "connect": "Terhubung",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "privacy": "Kebijakan Privasi",
+    "rights": "Hak cipta dilindungi.",
+    "back_home": "Kembali ke beranda"
+  }
+}

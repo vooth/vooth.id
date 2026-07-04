@@ -1,0 +1,9 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+import Landing from '../components/Landing.astro';
+import { landingCopy } from '../landing-copy';
+---
+
+<MarketingLayout>
+  <Landing locale="id" copy={landingCopy.id} />
+</MarketingLayout>
