@@ -39,14 +39,15 @@ npm run typecheck      # astro check
 
 ## Deploy
 
-Cloudflare (DNS for `vooth.id` is already delegated to Cloudflare).
-Astro builds to `dist/`; `wrangler.jsonc` serves it as Workers static assets with
-`custom_domain: true` for `vooth.id` — same pattern as
-`~/workspace/website/endy.muhardin.com` (which targets Hugo's `public/`; here it
-targets Astro's `dist/`).
+Git-connected **Cloudflare Workers Builds** — a push to `main` triggers
+Cloudflare to clone, `npm run build` (→ `dist/`), and `npx wrangler deploy`.
+`wrangler.jsonc` serves `dist/` as Workers static assets with `custom_domain:
+true` for `vooth.id`. The `WHATSAPP_NUMBER` build variable is set in the
+Cloudflare dashboard, not in this repo. Full setup and settings:
+[`docs/DEPLOY.md`](docs/DEPLOY.md).
 
 ```bash
-npx wrangler deploy
+git push origin main   # → Cloudflare builds and deploys
 ```
 
 ## DNS (Cloudflare)
